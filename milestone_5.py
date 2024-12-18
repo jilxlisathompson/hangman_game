@@ -28,6 +28,8 @@ list_of_guesses: list - A list of the guesses that have already been tried. Set 
 
 """
 import random
+from nltk.corpus import words
+import nltk
 
 class Hangman:
     def __init__(self, word_list: list, num_lives: int = 5):
@@ -38,6 +40,9 @@ class Hangman:
         self.num_letters = 0  # The number of unique letters to guess
         self.list_of_guesses = []  # List of guessed letters
         self.guess = None  # User's guess
+    
+    def get_num_letters(self):
+        return self.num_letters
 
     def word_guess_blanks(self):
         """Initializes the word_guessed list with underscores for each letter in the word."""
@@ -73,13 +78,14 @@ class Hangman:
             self.num_letters -= 1
 
             # # Check if the player has guessed all the unique letters
-            # if self.num_letters == 0:
-            #     print("Congratulations! You've guessed the word!")
-            #     return True  # Game over, player won
+            if self.num_letters == 0:
+                print("Congratulations! You've guessed the word!")
+                return True  # Game over, player won
         else:
             self.num_lives -= 1
             print(f"Sorry, '{guess}' is not in the word. Try again.")
             print(f"You have {self.num_lives} lives left.")
+
         
         print("Current word: " + ''.join(self.word_guessed))
         return False  # Game continues
@@ -109,6 +115,54 @@ class Hangman:
 
         return None
 
-# Example use
-game = Hangman(word_list=['mango', 'soursop', 'guinep', 'guava', 'starapple'])
-game.ask_for_input()
+"""
+Task 5: create the logic for the code 
+Create a function that will run all the code to run the game as expected. You should begin by creating a new script called milestone_5.py. Copy all the codes in milestone_4.py file into the newly created milestone_5.py file.
+
+
+Step 1:
+Create a function called play_game that takes word_list as a parameter. Inside the function, write the code for the following steps
+
+Create a variable called num_lives and assign it to 5
+Create an instance of the Hangman class. Do this by calling the Hangman class and assign it to a variable called game
+Pass word_list and num_lives as arguments to the game object
+Create a while loop and set the condition to True. In the body of the loop, do the following:
+Check if the num_lives is 0. If it is, that means the game has ended and the user lost. Print a message saying 'You lost!'
+Next, check if the num_letters is greater than 0. In this case, you would want to continue the game, so you need to call the ask_for_input method.
+If the num_lives is not 0 and the num_letters is not greater than 0, that means the user has won the game. Print a message saying 'Congratulations. You won the game!'
+Step 2:
+Outside the function, call your play_game function to play your game. Don't forget to pass in your list of words as argument to the function.
+"""
+
+
+def play_game(word_list: list) -> None:
+    num_lives = 5
+    game = Hangman(word_list, num_lives)
+    
+    while True:
+        # Check if the player has ran out of lives
+        if game.num_lives == 0:
+            print("Game over! You lost")
+            break  # Exit the loop when lives runs out
+        
+        # Check if there are still letters to guess (game continues)
+        if game.num_letters >= 0:
+            game.ask_for_input()
+        
+        # Check if the player has won 
+        if game.num_lives != 0 and game.num_letters == 0:
+            print('Congratulations! You won the game!')
+            break  # Exit the loop when the player wins
+    
+    return None
+
+
+# nltk.download('words')
+word_list = words.words()
+subset_size = 50
+
+# Get a random subset of the word list
+word_list = random.sample(word_list, subset_size)
+
+# print(word_list)
+play_game(word_list)

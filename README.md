@@ -47,12 +47,29 @@ The goal of a Hangman game is to guess a secret word (or phrase) one letter at a
 - Players cannot guess the same letter more than once. If htey do, they lose a turn.
 
 ## What I have learnt 
+Through this project, I have gained a comprehensive understanding of several core Python concepts, including:
 
+- Classes: I have learned how to define, instantiate, and use classes effectively in Python. I also explored the principles of object-oriented programming (OOP) such as encapsulation and state management.
+- Game Structure: I have acquired the skills necessary to structure and build a simple game from the ground up. This includes handling game logic, user input, and real-time feedback.
+- Code Structure: I have learned how to organize my code from initial conception to production. This involved creating reusable functions and organizing the project into multiple files for clarity and maintainability.
+- Inheritance: I explored the concept of inheritance in Python, allowing classes to derive attributes and behaviors from other classes, improving code reuse and reducing redundancy.
+- Exception Handling: I have become proficient in handling potential errors or edge cases using try, except, and finally, ensuring the program runs smoothly even when unexpected input or conditions arise.
 ## Instructions on Usage
+To use the Hangman game, follow these steps:
 
+1. Ensure you have Python 3.x installed on your machine.
+2. Download the milestone_5.py file, which contains the full implementation of the game.
+3. Refer to the usage example provided at the end of the milestone_5.py file.
+5. Follow the instructions there exactly, and the game should run without issues.
+
+Make sure to provide a list of words (such as a list of strings) as input, which will be used in the game. The game will run in the terminal, allowing you to guess letters and try to solve the word. I have used the nltk library since it contains all the words in the english dictionary to make the game more fun. Feel free to do so.
 ## File Structure 
+The project is organized as follows:
+
+- milestone_5.py: This file contains the complete implementation of the Hangman game, including game logic, functions, and classes.
+- Preceding files milstone_1.py - milestone_4.py: These files contain modular code that was developed during the game creation process, helping to build the functionality found in milestone_5.py. These might include helper functions, configuration settings, or utilities that were refactored for clarity and reusability.
 
 
 ## License Information 
-Creative Commons Licensing 
+This project is licensed under Creative Commons Licensing. You are free to share, remix, and adapt the content for non-commercial purposes, as long as appropriate credit is given. For full details, please refer to the terms outlined in the associated license documentation.
 
