@@ -104,6 +104,4 @@ if len(guess) == 1 and guess.isalpha():
 else: 
     print("Oops! That is not a valid input.")
 
-"""
-Task 5 : 
-"""
+#---------------------------------------------------------#
